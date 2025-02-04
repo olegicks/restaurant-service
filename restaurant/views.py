@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Cook, Dish, DishType
 
@@ -17,3 +17,8 @@ class IndexView(LoginRequiredMixin, TemplateView):
         context['num_visits'] = num_visits + 1
 
         return context
+
+class DishTypeListView(ListView):
+    model = DishType
+    queryset = DishType.objects.order_by("name")
+    paginate_by = 2

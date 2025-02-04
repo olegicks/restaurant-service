@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>DishType</h1>
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  {% for dish_type in object_list %}
+  <tr>
+    <td>{{ dish_type.name }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% include "includes/pagination.html" %}
+{% endblock %}
