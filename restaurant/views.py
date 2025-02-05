@@ -18,7 +18,18 @@ class IndexView(LoginRequiredMixin, TemplateView):
 
         return context
 
-class DishTypeListView(ListView):
+class DishTypeListView(LoginRequiredMixin, ListView):
     model = DishType
     queryset = DishType.objects.order_by("name")
     paginate_by = 2
+
+
+class DishListView(LoginRequiredMixin, ListView):
+    model = Dish
+    queryset = Dish.objects.select_related("dish_type").order_by("id")
+    paginate_by = 2
+
+
+class DishDetailView(LoginRequiredMixin, DetailView):
+    model = Dish
+    
