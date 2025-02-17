@@ -33,3 +33,10 @@ class DishListView(LoginRequiredMixin, ListView):
 class DishDetailView(LoginRequiredMixin, DetailView):
     model = Dish
     
+class CookListView(LoginRequiredMixin, ListView):
+    model = Cook
+    queryset = Cook.objects.prefetch_related("dishes")
+    paginate_by = 2
+
+class CookDetailView(LoginRequiredMixin, DetailView):
+    model = Cook
