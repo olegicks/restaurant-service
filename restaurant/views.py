@@ -1,3 +1,5 @@
+from django.urls import reverse_lazy
+from django.views import generic
 from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Cook, Dish, DishType
@@ -40,3 +42,43 @@ class CookListView(LoginRequiredMixin, ListView):
 
 class CookDetailView(LoginRequiredMixin, DetailView):
     model = Cook
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish_type-list")
+    template_name = "restaurant/dishtype_form.html"
+
+
+class DishTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = DishType
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish_type-list")
+    template_name = "restaurant/dishtype_form.html"
+
+
+class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = DishType
+    success_url = reverse_lazy("restaurant:dish_type-list")
+    template_name = "restaurant/dishtype_form_confirm_delete.html"
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish-list")
+    template_name = "restaurant/dish_form.html"
+
+
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish-list")
+    template_name = "restaurant/dish_form.html"
+
+
+class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Dish
+    success_url = reverse_lazy("restaurant:dish-list")
+    template_name = "restaurant/dish_form_confirm_delete.html"
