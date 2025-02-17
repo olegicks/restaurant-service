@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Dishes</h1>
-<table>
+  <h1>Dish List <a style="" href="{% url 'restaurant:dish-create' %}">+</a></h1>
+
+  <table class="table">
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>DishType</th>
     <th>Price</th>
     <th>Description</th>
+    <th>Update</th>
+    <th>Delete</th>
   </tr>
-  {% for dish in object_list %}
+  {% for dish in dish_list %}
   <tr>
-    <td><a href="{% url 'restaurant:dish-detail' dish.id %}">{{ dish.id }}</a></td>
+    <td><a href="{% url 'restaurant:dish-detail' pk=dish.id %}">{{ dish.id }}</a></td>
     <td>{{ dish.name }}</td>
     <td>{{ dish.dish_type.name }}</td>
     <td>{{dish.price}}</td>
     <td>{{dish.description}}</td>
+    <td>
+      <a href="{% url 'restaurant:dish-update' pk=dish.id %}">UPDATE</a>
+    </td>
+    <td>
+      <a href="{% url 'restaurant:dish-delete' pk=dish.id %}">DELETE</a>
+    </td>
   </tr>
   {% endfor %}
 </table>
