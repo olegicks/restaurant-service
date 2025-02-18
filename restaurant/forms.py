@@ -20,8 +20,6 @@ class CookYearsOfExperienceCreateForm(forms.ModelForm):
             raise forms.ValidationError("Can't be less than 0")
         if years_of_experience > 100:
             raise forms.ValidationError("Can't be more than 100")
-        if not years_of_experience.isdigit():
-            raise forms.ValidationError("Can't be not a digit")
         return years_of_experience
 
 
@@ -36,8 +34,6 @@ class CookYearsOfExperienceUpdateForm(forms.ModelForm):
             raise forms.ValidationError("Can't be less than 0")
         if years_of_experience > 100:
             raise forms.ValidationError("Can't be more than 100")
-        if not years_of_experience.isdigit():
-            raise forms.ValidationError("Can't be not a digit")
         return years_of_experience
 
 
