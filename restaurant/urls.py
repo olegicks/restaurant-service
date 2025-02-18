@@ -15,6 +15,7 @@ from .views import (
     CookCreateView,
     CookUpdateView,
     CookDeleteView,
+    toggle_dish_assign,
 )
 
 app_name = "restaurant"
@@ -50,12 +51,18 @@ urlpatterns = [
         name="dish-update",
     ),
     path(
+        "dishes/<int:pk>/toggle-assign/",
+        toggle_dish_assign,
+        name="toggle-dish-assign",
+    ),
+    path(
         "dish/<int:pk>/delete/",
         DishDeleteView.as_view(),
         name="dish-delete"
     ),
     path("dishes/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
     path("cooks/", CookListView.as_view(), name="cook-list"),
+
     path(
         "cooks/create/",
         CookCreateView.as_view(),
