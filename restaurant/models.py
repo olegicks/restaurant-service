@@ -29,7 +29,7 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.IntegerField()
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
-    cooks = models.ManyToManyField(Cook, related_name='dishes')
+    cooks = models.ManyToManyField(Cook, related_name="dishes")
 
     def __str__(self):
         return self.name
