@@ -5,7 +5,7 @@ from django.views import generic
 from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import (
+from restaurant.forms import (
     DishForm,
     CookYearsOfExperienceCreateForm,
     CookYearsOfExperienceUpdateForm,
@@ -13,7 +13,7 @@ from .forms import (
     DishSearchForm,
     CookSearchForm,
 )
-from .models import Cook, Dish, DishType
+from restaurant.models import Cook, Dish, DishType
 
 
 class IndexView(LoginRequiredMixin, TemplateView):
