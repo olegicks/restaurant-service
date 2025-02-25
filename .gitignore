@@ -1,7 +1,8 @@
 .idea
 .venv
 db.sqlite3
-__pycache__
+__pycache__/
+*.pyc
 restaurant_service/__pycache__/settings.cpython-311.pyc
 restaurant_service/__pycache__/urls.cpython-311.pyc
 
