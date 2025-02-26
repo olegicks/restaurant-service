@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<h1>DishType List <a style=" " href="{% url 'restaurant:dish_type-create' %}">+</a></h1>
+<form method="get" action="" class="form-inline">
+ {{search_form|crispy}}
+<input type="submit" value="🔍" class="btn btn-secondary">
+</form>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  {% for dish_type in object_list %}
+  <tr>
+    <td>{{ dish_type.name }}</td>
+    <td>
+      <a style="color: blue" href="{% url 'restaurant:dish_type-update' pk=dish_type.id %}">UPDATE</a>
+    </td>
+    <td>
+      <a style="color: red" href="{% url 'restaurant:dish_type-delete' pk=dish_type.id %}">DELETE</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
