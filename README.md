@@ -11,7 +11,7 @@ Django project for managing dishes, dish types, and cooks in a restaurant.
 Python 3 must be already installed.
 
 ```shell
-git clone https://github.com/OlehShynkaryk/restaurant-service
+git clone https://github.com/olegicks/restaurant-service.git
 cd restaurant-service
 python3 -m venv venv
 source venv/bin/activate
