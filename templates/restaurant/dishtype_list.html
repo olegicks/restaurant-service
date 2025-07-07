@@ -1,28 +1,48 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
+{% block title %}<title>Dish Types</title>{% endblock %}
+
 {% block content %}
-<h1>DishType List <a style=" " href="{% url 'restaurant:dish_type-create' %}">+</a></h1>
-<form method="get" action="" class="form-inline">
- {{search_form|crispy}}
-<input type="submit" value="🔍" class="btn btn-secondary">
-</form>
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Update</th>
-    <th>Delete</th>
-  </tr>
-  {% for dish_type in object_list %}
-  <tr>
-    <td>{{ dish_type.name }}</td>
-    <td>
-      <a style="color: blue" href="{% url 'restaurant:dish_type-update' pk=dish_type.id %}">UPDATE</a>
-    </td>
-    <td>
-      <a style="color: red" href="{% url 'restaurant:dish_type-delete' pk=dish_type.id %}">DELETE</a>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h1 class="mb-0">Dish Type List</h1>
+      <a href="{% url 'restaurant:dish_type-create' %}" class="btn btn-primary">Create Dish Type</a>
+    </div>
+
+    <div class="card-body">
+      <form method="get" action="" class="form-inline mb-4">
+        {{ search_form|crispy }}
+        <input type="submit" value="🔍" class="btn btn-secondary ml-2">
+      </form>
+
+      {% if object_list %}
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for dish_type in object_list %}
+                <tr>
+                  <td>{{ dish_type.name }}</td>
+                  <td>
+                    <a href="{% url 'restaurant:dish_type-update' pk=dish_type.id %}" class="btn btn-secondary btn-sm">Update</a>
+                    <a href="{% url 'restaurant:dish_type-delete' pk=dish_type.id %}" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p>There are no dish types in the service.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}

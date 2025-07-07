@@ -1,15 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}
-  <title>Home page</title>
+  <title>Restaurant Home</title>
 {% endblock %}
+
 {% block content %}
-  <h1>Restaurant Home</h1>
-  <p>Welcome to the Greatest Restaurant!</p>
-  <h3>Kitchen content:</h3>
-  <ul>
-    <li>Num Cooks: {{ num_cooks }}</li>
-    <li>Num Dishes: {{ num_dishes }}</li>
-    <li>Num Dishes Types: {{ num_dish_types }}</li>
-  </ul>
-  <p>You have visited this page {{num_visits}} {% if num_visits == 1%} time{% else %} times{% endif %}</p>
+  <div class="container-fluid py-4">
+    <div class="card mb-4">
+      <div class="card-body p-5">
+        <h1 class="card-title display-4">Restaurant Home</h1>
+        <p class="lead">Welcome to the Greatest Restaurant!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-center mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Num Cooks</h5>
+            <p class="card-text h2">{{ num_cooks }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Num Dishes</h5>
+            <p class="card-text h2">{{ num_dishes }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-muted">Num Dishes Types</h5>
+            <p class="card-text h2">{{ num_dish_types }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <p class="text-muted">You have visited this page {{ num_visits }} {% if num_visits == 1 %} time{% else %} times{% endif %}</p>
+      </div>
+    </div>
+
+  </div>
 {% endblock %}

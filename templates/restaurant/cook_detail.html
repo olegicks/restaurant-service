@@ -1,30 +1,55 @@
 {% extends "base.html" %}
 
+{% block title %}<title>Cook: {{ cook.username }}</title>{% endblock %}
+
 {% block content %}
-  <h1>
-    Username: {{ cook.username }}
-    <a href="{% url 'restaurant:cook-delete' pk=cook.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
+<div class="container mt-4">
+  <div class="row">
+    {% comment %} Блок з основною інформацією {% endcomment %}
+    <div class="col-lg-7">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h2 class="mb-0">Username: {{ cook.username }}</h2>
+          <div>
+            <a href="{% url 'restaurant:cook-update' pk=cook.id %}" class="btn btn-secondary">Update</a>
+            <a href="{% url 'restaurant:cook-delete' pk=cook.id %}" class="btn btn-danger">Delete</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <dl class="row">
+            <dt class="col-sm-4">First name:</dt>
+            <dd class="col-sm-8">{{ cook.first_name|default:"-" }}</dd>
 
-    <a href="{% url 'restaurant:cook-update' pk=cook.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
-  </h1>
+            <dt class="col-sm-4">Last name:</dt>
+            <dd class="col-sm-8">{{ cook.last_name|default:"-" }}</dd>
 
-  <p><strong>First name:</strong> {{ cook.first_name }}</p>
-  <p><strong>Last name:</strong> {{ cook.last_name }}</p>
-  <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
-  <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
-  <div class="ml-3">
-    <h4>Dishes</h4>
-    {% for dish in cook.dishes.all %}
-        <hr>
-        <p><strong>Name:</strong> {{ dish.name }}</p>
-        <p><strong>DishType:</strong> {{ dish.dish_type.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{dish.id}}</p>
-    {% empty %}
-      <p>No dish!</p>
-    {% endfor %}
+            <dt class="col-sm-4">Years of experience:</dt>
+            <dd class="col-sm-8">{{ cook.years_of_experience }}</dd>
+
+            <dt class="col-sm-4">Is staff:</dt>
+            <dd class="col-sm-8">{{ cook.is_staff }}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} Блок зі стравами цього кухаря {% endcomment %}
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-header">
+          <h4>Dishes</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          {% for dish in cook.dishes.all %}
+            <li class="list-group-item">
+              <strong>{{ dish.name }}</strong> ({{ dish.dish_type.name }})
+            </li>
+          {% empty %}
+            <li class="list-group-item">No dishes assigned!</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
+</div>
 {% endblock %}

@@ -1,0 +1,138 @@
+[
+{
+    "model": "restaurant.dishtype",
+    "pk": 1,
+    "fields": {
+        "name": "Desert"
+    }
+},
+{
+    "model": "restaurant.dishtype",
+    "pk": 2,
+    "fields": {
+        "name": "Starters"
+    }
+},
+{
+    "model": "restaurant.dishtype",
+    "pk": 3,
+    "fields": {
+        "name": "Main course"
+    }
+},
+{
+    "model": "restaurant.dishtype",
+    "pk": 4,
+    "fields": {
+        "name": "Side dish"
+    }
+},
+{
+    "model": "restaurant.cook",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Sfha2c836ZKCciQoL1Me6l$8PJtLHq+jvbOPEXlPdaUbf1ZvUjhAi9m0aGzQnn6clw=",
+        "last_login": "2025-02-24T14:34:33.012Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "amin@admin.con",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-02-03T14:13:00.667Z",
+        "years_of_experience": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "restaurant.cook",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$DWnKsfpPwxFKynrfAJvTki$k2cgWXtaFLESEuOqUdDuss4+gaE+SGiV+TMe77/TGAo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "diana",
+        "first_name": "diana",
+        "last_name": "vov",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-03T14:18:32.805Z",
+        "years_of_experience": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "restaurant.cook",
+    "pk": 3,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "SuperChef",
+        "first_name": "Super",
+        "last_name": "Chef",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-18T17:06:54.240Z",
+        "years_of_experience": 40,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "restaurant.cook",
+    "pk": 4,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "NewChef",
+        "first_name": "New",
+        "last_name": "Chef",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-18T17:11:08.457Z",
+        "years_of_experience": 39,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "restaurant.cook",
+    "pk": 7,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "dizmor",
+        "first_name": "gig",
+        "last_name": "pip",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-02-24T14:31:30.562Z",
+        "years_of_experience": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "restaurant.dish",
+    "pk": 1,
+    "fields": {
+        "name": "Tiramisu",
+        "description": "Nice",
+        "price": 5,
+        "dish_type": 1,
+        "cooks": [
+            2
+        ]
+    }
+}
+]

@@ -1,10 +1,34 @@
 {% extends "base.html" %}
 
-{% block content %}
-  <h1>Delete Cook?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
+{% block title %}
+  <title>Delete Cook</title>
+{% endblock %}
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+{% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="card border-danger">
+          <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Confirm Deletion</h4>
+          </div>
+          <div class="card-body">
+            <p class="lead">
+              Are you sure you want to delete the cook: <strong>{{ cook.username }}</strong>?
+            </p>
+            <p class="text-muted">This action cannot be undone.</p>
+          </div>
+          <div class="card-footer text-right">
+            <a href="{{ cook.get_absolute_url }}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
 {% endblock %}
