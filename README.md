@@ -26,4 +26,4 @@ python manage.py runserver  # starts Django Server
 * User-friendly admin panel for advanced management.
 
 ## Demo
-![img.png](img.png)
+![img_2.png](img_2.png)
