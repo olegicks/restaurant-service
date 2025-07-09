@@ -6,46 +6,49 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container-fluid py-4">
-    <div class="card mb-4">
-      <div class="card-body p-5">
-        <h1 class="card-title display-4">Restaurant Home</h1>
-        <p class="lead">Welcome to the Greatest Restaurant!</p>
-      </div>
+<div class="container">
+  {% comment %} Привітальний блок у звичайній картці {% endcomment %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h1 class="card-title">Restaurant Home</h1>
+      <p class="lead">Welcome to the Greatest Restaurant!</p>
     </div>
-
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-body">
-            <h5 class="card-title text-muted">Num Cooks</h5>
-            <p class="card-text h2">{{ num_cooks }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-body">
-            <h5 class="card-title text-muted">Num Dishes</h5>
-            <p class="card-text h2">{{ num_dishes }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-center mb-3">
-          <div class="card-body">
-            <h5 class="card-title text-muted">Num Dishes Types</h5>
-            <p class="card-text h2">{{ num_dish_types }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col-12 text-center">
-        <p class="text-muted">You have visited this page {{ num_visits }} {% if num_visits == 1 %} time{% else %} times{% endif %}</p>
-      </div>
-    </div>
-
   </div>
+
+  {% comment %} Блок зі статистикою {% endcomment %}
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Num Cooks</h5>
+          <p class="card-text h2">{{ num_cooks }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Num Dishes</h5>
+          <p class="card-text h2">{{ num_dishes }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Num Dishes Types</h5>
+          <p class="card-text h2">{{ num_dish_types }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Лічильник відвідувань {% endcomment %}
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <p class="text-white">You have visited this page {{ num_visits }} {% if num_visits == 1 %} time{% else %} times{% endif %}</p>
+    </div>
+  </div>
+
+</div>
 {% endblock %}

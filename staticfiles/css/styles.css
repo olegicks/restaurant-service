@@ -1,8 +1,55 @@
-body {
-    margin-top: 20px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
-.link-to-page {
-    float: right;
-    margin: 0 2px 0 2px;
+body {
+    font-family: 'Lato', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/main-bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.main-content {
+    padding: 40px 0;
+}
+
+.hero-section {
+    height: 85vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+}
+
+.card {
+    background-color: #343a40;
+    color: white;
+    border: 1px solid #495057;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid #495057;
+}
+
+.card .text-muted {
+    color: #adb5bd !important;
 }
