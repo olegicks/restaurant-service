@@ -5,6 +5,8 @@ Django project for managing dishes, dish types, and cooks in a restaurant.
 ## Check it out!  
 
 [Restaurant project deployed to Render](https://restaurant-service-t6ff.onrender.com)
+
+
 login: adminn
 password: adminn
 
