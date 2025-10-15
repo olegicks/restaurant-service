@@ -1,54 +1,40 @@
 {% extends "base.html" %}
-{% load static %}
 
-{% block title %}
-  <title>Restaurant Home</title>
-{% endblock %}
+{% block title %}<title>Welcome — Restaurant Service</title>{% endblock %}
 
 {% block content %}
-<div class="container">
-  {% comment %} Привітальний блок у звичайній картці {% endcomment %}
-  <div class="card mb-4">
-    <div class="card-body">
-      <h1 class="card-title">Restaurant Home</h1>
-      <p class="lead">Welcome to the Greatest Restaurant!</p>
-    </div>
-  </div>
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="display-4 mb-3">Welcome to Our Restaurant Service</h1>
+      <p class="lead mb-4 text-muted">
+        Discover curated dishes and meet our best cooks. Manage menus, chefs and dish types effortlessly.
+      </p>
 
-  {% comment %} Блок зі статистикою {% endcomment %}
-  <div class="row">
+      <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'restaurant:dish-list' %}" class="btn btn-gradient">Explore Menu</a>
+        <a href="{% url 'restaurant:cook-list' %}" class="btn btn-outline-secondary">View Cooks</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-3 mt-4">
     <div class="col-md-4">
-      <div class="card text-center mb-3">
-        <div class="card-body">
-          <h5 class="card-title text-muted">Num Cooks</h5>
-          <p class="card-text h2">{{ num_cooks }}</p>
-        </div>
+      <div class="card-modern p-3">
+        <h6 class="mb-1">Dishes</h6>
+        <div class="text-muted">{{ num_dishes|default:"-" }}</div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card text-center mb-3">
-        <div class="card-body">
-          <h5 class="card-title text-muted">Num Dishes</h5>
-          <p class="card-text h2">{{ num_dishes }}</p>
-        </div>
+      <div class="card-modern p-3">
+        <h6 class="mb-1">Cooks</h6>
+        <div class="text-muted">{{ num_cooks|default:"-" }}</div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card text-center mb-3">
-        <div class="card-body">
-          <h5 class="card-title text-muted">Num Dishes Types</h5>
-          <p class="card-text h2">{{ num_dish_types }}</p>
-        </div>
+      <div class="card-modern p-3">
+        <h6 class="mb-1">Dish Types</h6>
+        <div class="text-muted">{{ num_dish_types|default:"-" }}</div>
       </div>
     </div>
   </div>
-
-  {% comment %} Лічильник відвідувань {% endcomment %}
-  <div class="row mt-4">
-    <div class="col-12 text-center">
-      <p class="text-white">You have visited this page {{ num_visits }} {% if num_visits == 1 %} time{% else %} times{% endif %}</p>
-    </div>
-  </div>
-
-</div>
 {% endblock %}
